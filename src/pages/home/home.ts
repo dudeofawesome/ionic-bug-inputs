@@ -25,6 +25,21 @@ export class HomePage {
             type: 'text'
           },
           {
+            name: 'age',
+            label: 'Age',
+            type: 'range'
+          },
+          {
+            name: 'gender',
+            label: 'Gender',
+            type: 'select',
+            options: [
+              {value: 'male', label: 'Male'},
+              {value: 'female', label: 'Female'},
+              {value: 'neutral', label: 'Neutral'}
+            ]
+          },
+          {
             name: 'email',
             label: 'Email',
             type: 'email'
@@ -32,6 +47,8 @@ export class HomePage {
         ],
         form: fb.group({
           name: new FormControl(),
+          age: new FormControl(),
+          gender: new FormControl(),
           email: new FormControl()
         })
       },
@@ -39,6 +56,11 @@ export class HomePage {
         title: 'Slide 2',
         message: `This is the second slide in the deck`,
         inputs: [
+          {
+            name: 'name',
+            label: 'Name',
+            type: 'text'
+          },
           {
             name: 'age',
             label: 'Age',
@@ -55,15 +77,16 @@ export class HomePage {
             ]
           },
           {
-            name: 'confirm',
-            label: 'Type Confirm',
-            type: 'text'
+            name: 'email',
+            label: 'Email',
+            type: 'email'
           }
         ],
         form: fb.group({
+          name: new FormControl(),
           age: new FormControl(),
           gender: new FormControl(),
-          confirm: new FormControl()
+          email: new FormControl()
         })
       },
     ]
