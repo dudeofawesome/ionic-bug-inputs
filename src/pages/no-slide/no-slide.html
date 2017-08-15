@@ -163,18 +163,18 @@
         </ion-card-content>
       </ion-card>
 
-      <!-- Card 1 again, but without the `ngSwitch`, with an always true `ngIf` -->
+      <!-- Card 1 again, but without the `ngSwitch`, with an extraneous `ngFor` -->
       <ion-card *ngIf="slides[0]; let slide">
         <ion-card-content>
           <ion-card-title>
             {{slide.title}}: Electric Boogaloo
           </ion-card-title>
-          <p>This version of slide 1 doesn't use a <code>ngSwitch</code>, but with an always true <code>ngIf</code></p>
+          <p>This version of slide 1 doesn't use a <code>ngSwitch</code>, but with an extraneous <code>ngFor</code></p>
           <p>{{slide.message}}</p>
 
           <form [formGroup]="slide.form">
             <ion-item *ngFor="let input of slide.inputs">
-              <ng-container *ngIf="true">
+              <ng-container *ngFor="let a of [1]">
                 <ion-label floating>{{input.label}}</ion-label>
                 <ion-input [type]="input.type" [formControlName]="input.name"></ion-input>
               </ng-container>
