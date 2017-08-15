@@ -14,7 +14,7 @@ export class NoSlidePage {
     // Define slides with inputs here
     this.slides = [
       {
-        title: 'Slide 1',
+        title: 'Card 1',
         message: `This is the first slide in the deck`,
         inputs: [
           {
@@ -51,7 +51,7 @@ export class NoSlidePage {
         })
       },
       {
-        title: 'Slide 2',
+        title: 'Card 2',
         message: `This is the second slide in the deck`,
         inputs: [
           {

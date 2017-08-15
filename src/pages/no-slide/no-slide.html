@@ -43,7 +43,7 @@
         </ion-card-content>
       </ion-card>
 
-      <!-- Slide 1 again, but without the `ion-input`s -->
+      <!-- Card 1 again, but without the `ion-input`s -->
       <ion-card *ngIf="slides[0]; let slide">
         <ion-card-content>
           <ion-card-title>
@@ -77,7 +77,7 @@
         </ion-card-content>
       </ion-card>
 
-      <!-- Slide 1 again, but without the `ion-card`s -->
+      <!-- Card 1 again, but without the `ion-card`s -->
       <div *ngIf="slides[0]; let slide">
         <h3>
           {{slide.title}}: Electric Boogaloo
@@ -109,7 +109,7 @@
         <p>There should be labels visible above this line</p>
       </div>
 
-      <!-- Slide 1 again, but without the `ion-label`s -->
+      <!-- Card 1 again, but without the `ion-label`s -->
       <ion-card *ngIf="slides[0]; let slide">
         <ion-card-content>
           <ion-card-title>
@@ -143,7 +143,7 @@
         </ion-card-content>
       </ion-card>
 
-      <!-- Slide 1 again, but without the `ngSwitch` -->
+      <!-- Card 1 again, but without the `ngSwitch` -->
       <ion-card *ngIf="slides[0]; let slide">
         <ion-card-content>
           <ion-card-title>
@@ -163,8 +163,29 @@
         </ion-card-content>
       </ion-card>
 
+      <!-- Card 1 again, but without the `ngSwitch`, with an always true `ngIf` -->
+      <ion-card *ngIf="slides[0]; let slide">
+        <ion-card-content>
+          <ion-card-title>
+            {{slide.title}}: Electric Boogaloo
+          </ion-card-title>
+          <p>This version of slide 1 doesn't use a <code>ngSwitch</code>, but with an always true <code>ngIf</code></p>
+          <p>{{slide.message}}</p>
 
-      <!-- Slide 1 again, but with the `ngIf` instead of `ngSwitch` -->
+          <form [formGroup]="slide.form">
+            <ion-item *ngFor="let input of slide.inputs">
+              <ng-container *ngIf="true">
+                <ion-label floating>{{input.label}}</ion-label>
+                <ion-input [type]="input.type" [formControlName]="input.name"></ion-input>
+              </ng-container>
+            </ion-item>
+          </form>
+
+          <p>There should be inputs visible above this line</p>
+        </ion-card-content>
+      </ion-card>
+
+      <!-- Card 1 again, but with the `ngIf` instead of `ngSwitch` -->
       <ion-card *ngIf="slides[0]; let slide">
         <ion-card-content>
           <ion-card-title>
@@ -196,13 +217,13 @@
         </ion-card-content>
       </ion-card>
 
-      <!-- Slide 2, with HTML inputs instead of Ion inputs -->
+      <!-- Card 2, with HTML inputs instead of Ion inputs -->
       <ion-card *ngIf="slides[1]; let slide">
         <ion-card-content>
           <ion-card-title>
             {{slide.title}}
           </ion-card-title>
-          <p>Slide 2 uses HTML inputs instead of Ion inputs</p>
+          <p>Card 2 uses HTML inputs instead of Ion inputs</p>
           <p>{{slide.message}}</p>
 
           <form [formGroup]="slide.form">
