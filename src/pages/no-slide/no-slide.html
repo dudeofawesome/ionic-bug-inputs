@@ -49,7 +49,7 @@
           <ion-card-title>
             {{slide.title}}: Electric Boogaloo
           </ion-card-title>
-          <p>This version of slide 1 just has <code>ion-label</code>s</p>
+          <p>This version of card 1 just has <code>ion-label</code>s</p>
           <p>{{slide.message}}</p>
 
           <form [formGroup]="slide.form">
@@ -82,7 +82,7 @@
         <h3>
           {{slide.title}}: Electric Boogaloo
         </h3>
-        <p>This version of slide 1 doesn't use an <code>ion-card</code></p>
+        <p>This version of card 1 doesn't use an <code>ion-card</code></p>
         <p>{{slide.message}}</p>
 
         <form [formGroup]="slide.form">
@@ -115,7 +115,7 @@
           <ion-card-title>
             {{slide.title}}: Electric Boogaloo
           </ion-card-title>
-          <p>This version of slide 1 just has <code>ion-input</code>s</p>
+          <p>This version of card 1 just has <code>ion-input</code>s</p>
           <p>{{slide.message}}</p>
 
           <form [formGroup]="slide.form">
@@ -149,7 +149,7 @@
           <ion-card-title>
             {{slide.title}}: Electric Boogaloo
           </ion-card-title>
-          <p>This version of slide 1 doesn't use a <code>ngSwitch</code></p>
+          <p>This version of card 1 doesn't use a <code>ngSwitch</code></p>
           <p>{{slide.message}}</p>
 
           <form [formGroup]="slide.form">
@@ -169,7 +169,7 @@
           <ion-card-title>
             {{slide.title}}: Electric Boogaloo
           </ion-card-title>
-          <p>This version of slide 1 doesn't use a <code>ngSwitch</code>, but with an extraneous <code>ngFor</code></p>
+          <p>This version of card 1 doesn't use a <code>ngSwitch</code>, but with an extraneous <code>ngFor</code></p>
           <p>{{slide.message}}</p>
 
           <form [formGroup]="slide.form">
@@ -185,13 +185,34 @@
         </ion-card-content>
       </ion-card>
 
+      <!-- Card 1 again, but with an `ion-icon` to demonstrate that some Ion Components do work -->
+      <ion-card *ngIf="slides[0]; let slide">
+          <ion-card-content>
+            <ion-card-title>
+              {{slide.title}}: Electric Boogaloo
+            </ion-card-title>
+            <p>This version of card 1 has an <code>ion-icon</code> to demonstrate that some Ion Components do work.</p>
+            <p>{{slide.message}}</p>
+
+            <form [formGroup]="slide.form">
+              <ion-item *ngFor="let input of slide.inputs">
+                <ng-container *ngIf="true">
+                  <ion-icon name="bug"></ion-icon>
+                </ng-container>
+              </ion-item>
+            </form>
+
+            <p>There should be inputs visible above this line</p>
+          </ion-card-content>
+        </ion-card>
+
       <!-- Card 1 again, but with the `ngIf` instead of `ngSwitch` -->
       <ion-card *ngIf="slides[0]; let slide">
         <ion-card-content>
           <ion-card-title>
             {{slide.title}}: Electric Boogaloo
           </ion-card-title>
-          <p>This version of slide 1 uses <code>ngIf</code> instead of <code>ngSwitch</code></p>
+          <p>This version of card 1 uses <code>ngIf</code> instead of <code>ngSwitch</code></p>
           <p>{{slide.message}}</p>
 
           <form [formGroup]="slide.form">
