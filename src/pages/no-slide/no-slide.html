@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding style="background-color: rgb(200, 200, 200)">
+  <!-- Would use an ngFor here, but for demo purposes, I need slide 2 to have HTML inputs -->
+  <ion-card *ngIf="slides[0]; let slide">
+    <ion-card-content>
+      <ion-card-title>
+        {{slide.title}}
+      </ion-card-title>
+      <p>{{slide.message}}</p>
+
+      <form [formGroup]="slide.form">
+        <ion-item *ngFor="let input of slide.inputs">
+          <ng-container [ngSwitch]="input.type">
+            <ng-container *ngSwitchCase="'select'">
+              <ion-label floating>{{input.label}}</ion-label>
+              <ion-select [formControlName]="input.name">
+                <ion-option *ngFor="let option of input.options" [value]="option.value">{{option.label}}</ion-option>
+              </ion-select>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'range'">
+              <ion-label>{{input.label}}</ion-label>
+              <ion-range [formControlName]="input.name"></ion-range>
+            </ng-container>
+
+            <ng-container *ngSwitchDefault>
+              <ion-label floating>{{input.label}}</ion-label>
+              <ion-input [type]="input.type" [formControlName]="input.name">
+              </ion-input>
+            </ng-container>
+          </ng-container>
+        </ion-item>
+      </form>
+
+      <p>There should be inputs visible above this line</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Slide 2, with HTML inputs instead of Ion inputs -->
+  <ion-card *ngIf="slides[1]; let slide">
+    <ion-card-content>
+      <ion-card-title>
+        {{slide.title}}
+      </ion-card-title>
+      <p>{{slide.message}}</p>
+
+      <form [formGroup]="slide.form">
+        <ion-item *ngFor="let input of slide.inputs">
+          <ng-container [ngSwitch]="input.type">
+            <ng-container *ngSwitchCase="'select'">
+              <label>{{input.label}}</label>
+              <select [formControlName]="input.name">
+                <option *ngFor="let option of input.options" [value]="option.value">{{option.label}}</option>
+              </select>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'range'">
+              <label>{{input.label}}</label>
+              <input [type]="input.type" [formControlName]="input.name">
+            </ng-container>
+
+            <ng-container *ngSwitchDefault>
+              <label>{{input.label}}</label>
+              <input [type]="input.type" [formControlName]="input.name">
+            </ng-container>
+          </ng-container>
+        </ion-item>
+      </form>
+
+      <p>There should be inputs visible above this line</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

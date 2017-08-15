@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { NavController } from 'ionic-angular';
 
-import { NoSlidePage } from '../no-slide/no-slide';
-
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-no-slide',
+  templateUrl: 'no-slide.html'
 })
-export class HomePage {
+export class NoSlidePage {
 
   public slides: any[];
 
@@ -67,10 +65,6 @@ export class HomePage {
         })
       },
     ]
-  }
-
-  showPage () {
-    this.navCtrl.push(NoSlidePage);
   }
 
 }
