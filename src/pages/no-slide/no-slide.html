@@ -16,26 +16,24 @@
           <p>{{slide.message}}</p>
 
           <form [formGroup]="slide.form">
-            <ion-item *ngFor="let input of slide.inputs">
-              <ng-container [ngSwitch]="input.type">
-                <ng-container *ngSwitchCase="'select'">
-                  <ion-label floating>{{input.label}}</ion-label>
-                  <ion-select [formControlName]="input.name">
-                    <ion-option *ngFor="let option of input.options" [value]="option.value">{{option.label}}</ion-option>
-                  </ion-select>
-                </ng-container>
+            <ion-item *ngFor="let input of slide.inputs" [ngSwitch]="input.type">
+              <ng-template ngSwitchCase="select">
+                <ion-label floating>{{input.label}}</ion-label>
+                <ion-select [formControlName]="input.name">
+                  <ion-option *ngFor="let option of input.options" [value]="option.value">{{option.label}}</ion-option>
+                </ion-select>
+              </ng-template>
 
-                <ng-container *ngSwitchCase="'range'">
-                  <ion-label>{{input.label}}</ion-label>
-                  <ion-range [formControlName]="input.name"></ion-range>
-                </ng-container>
+              <ng-template ngSwitchCase="range">
+                <ion-label>{{input.label}}</ion-label>
+                <ion-range [formControlName]="input.name"></ion-range>
+              </ng-template>
 
-                <ng-container *ngSwitchDefault>
-                  <ion-label floating>{{input.label}}</ion-label>
-                  <ion-input [type]="input.type" [formControlName]="input.name">
-                  </ion-input>
-                </ng-container>
-              </ng-container>
+              <ng-template *ngSwitchDefault>
+                <ion-label floating>{{input.label}}</ion-label>
+                <ion-input [type]="input.type" [formControlName]="input.name">
+                </ion-input>
+              </ng-template>
             </ion-item>
           </form>
 
