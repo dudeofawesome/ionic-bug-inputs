@@ -16,25 +16,25 @@
           <p>{{slide.message}}</p>
 
           <form [formGroup]="slide.form">
-            <ion-item *ngFor="let input of slide.inputs" [ngSwitch]="input.type">
-              <ng-template ngSwitchCase="select">
+            <ng-container *ngFor="let input of slide.inputs" [ngSwitch]="input.type">
+              <ion-item *ngSwitchCase="'select'">
                 <ion-label floating>{{input.label}}</ion-label>
                 <ion-select [formControlName]="input.name">
                   <ion-option *ngFor="let option of input.options" [value]="option.value">{{option.label}}</ion-option>
                 </ion-select>
-              </ng-template>
+              </ion-item>
 
-              <ng-template ngSwitchCase="range">
+              <ion-item *ngSwitchCase="'range'">
                 <ion-label>{{input.label}}</ion-label>
                 <ion-range [formControlName]="input.name"></ion-range>
-              </ng-template>
+              </ion-item>
 
-              <ng-template *ngSwitchDefault>
+              <ion-item *ngSwitchDefault>
                 <ion-label floating>{{input.label}}</ion-label>
                 <ion-input [type]="input.type" [formControlName]="input.name">
                 </ion-input>
-              </ng-template>
-            </ion-item>
+              </ion-item>
+            </ng-container>
           </form>
 
           <p>There should be inputs visible above this line</p>
